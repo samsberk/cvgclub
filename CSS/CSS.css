@@ -1,0 +1,736 @@
+﻿* {
+	padding: 0;
+	margin: 0;
+}
+
+/*-------------------------------------------------------------- text-box Starts ---------------------------------------------------------------*/
+:focus {
+	outline: none;
+}
+
+.input-effect {
+	margin-bottom:25px;
+	position: relative;
+}
+/* necessary to give position: relative to parent. */
+.input-effect .txt {
+	font: 13px/24px "muli", Arial, sans-serif;
+	color: skyblue;
+	font-weight:bold;
+	padding-left:7px;
+	width: 100%;
+	box-sizing: border-box;
+	letter-spacing: 1px;
+}
+.effect-18 {
+	border: 0;
+	padding: 4px 0;
+	border-bottom: 1px solid gray;
+	background-color: transparent;
+}
+
+	.effect-18 ~ .focus-border {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		z-index: 99;
+	}
+
+		.effect-18 ~ .focus-border:before,
+		.effect-18 ~ .focus-border:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 0;
+			height: 100%;
+			background-color: skyblue;
+			transition: 1s;
+		}
+
+		.effect-18 ~ .focus-border:after {
+			left: auto;
+			right: 0;
+		}
+
+	.effect-18:focus ~ .focus-border:before,
+	.effect-18:focus ~ .focus-border:after,
+	.has-content.effect-18 ~ .focus-border:before,
+	.has-content.effect-18 ~ .focus-border:after {
+		width: 50%;
+		transition: 1s;
+	}
+
+	.effect-18 ~ label {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		top: 5px;
+		font-family:'special Elite';
+		color: cadetblue;
+		transition: 0.3s;
+		text-transform:uppercase;
+		z-index: -1;
+		letter-spacing: 1px;
+	}
+
+	.effect-18:focus ~ label, .has-content.effect-18 ~ label {
+		top: -15px;
+		font-size: 12px;
+		color: skyblue;
+		letter-spacing:1.5px;
+		transition: 0.3s;
+	}
+/*-------------------------------------------------------------- common Starts ---------------------------------------------------------------*/
+body {
+	font-family: quicksand;
+	color: skyblue;
+	user-select: none;
+}
+
+.progress-bar-img {
+	height: 7px;
+	width: 100%+50px;
+	background: url(../Images/Other/hr-img.gif);
+	margin: 25px -25px -25px -25px;
+	visibility:hidden;
+}
+.alert-box{
+	position:fixed;
+	top:0;
+	left:0;
+	height:100vh;
+	width:100%;
+	background:rgba(22,22,22,0.8);
+	display:none;
+}
+.alert-box .alert-dialog{
+	position:relative;
+	top:50%;
+	left:50%;
+	background:url(../Images/Other/dark-knight.jpg) center no-repeat;
+	min-height:200px;
+	width:30vw;
+	text-align:center;
+	border-radius:3px;
+	padding:25px 15px 15px 15px;
+	transform:translate(-50%,-50%);
+}
+.alert-box .alert-dialog label{
+	font-family:muli;
+	font-size:20px;
+}
+.btn {
+	background: rgba(0,0,0,0.2);
+	border: 1px solid cadetblue;
+	color: skyblue;
+	font-family: quicksand;
+	letter-spacing: 2px;
+	border-radius: 1px;
+	transition: all 0.5s;
+}
+	.btn:hover {
+		background: skyblue;
+		color: black;
+		font-weight: bold;
+		letter-spacing: 3px;
+		border: 1px solid aqua;
+		transition: all 0.5s;
+	}
+.badge{
+	background:black;
+	color:skyblue;
+	font-family:muli;
+}
+.tooltip-inner {
+	background: #000000;
+	font-family: muli;
+	padding: 8px;
+	font-size: 15px;
+	opacity: 0.95;
+	color:skyblue;
+	font-family:muli;
+	border: none;
+}
+::-webkit-scrollbar {
+	display: none;
+}
+hr {
+	height: 1px;
+	background: skyblue;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	font-family: quicksand;
+	color: skyblue;
+	user-select: none;
+}
+
+label, p {
+	font-family: muli;
+	color: skyblue;
+	user-select: none;
+}
+
+.link {
+	text-decoration: none;
+	user-select: none;
+	color: skyblue;
+}
+
+	.link:hover {
+		text-decoration: none;
+		color: deepskyblue;
+	}
+
+	.link:focus {
+		text-decoration: none;
+		color: skyblue;
+	}
+
+.link-footer {
+	text-decoration: none;
+	font-family: quicksand;
+	user-select: none;
+	color: antiquewhite;
+}
+
+	.link-footer:hover {
+		text-decoration: none;
+		font-family: quicksand;
+		color: aqua;
+	}
+
+	.link-footer:focus {
+		text-decoration: none;
+		font-family: quicksand;
+		color: antiquewhite;
+	}
+
+footer {
+	position: relative;
+	bottom: 0;
+	left: 0;
+	min-height: 50px;
+	width: 100%;
+	color: skyblue;
+	font-size: 12px;
+	text-align: center;
+	padding: 10px 0px;
+	font-family: muli;
+	user-select: none;
+	z-index: 99;
+}
+
+.mypills li a {
+	color: dimgray;
+	font-family: quicksand;
+	padding: 7px !important;
+	transition: all 1s;
+}
+
+.mypills li.active a {
+	background: dimgray;
+	color: antiquewhite;
+}
+
+	.mypills li a:hover, .mypills li.active a:hover, .mypills li.active a:focus {
+		background: gray;
+		color: white;
+	}
+
+#informer {
+	display: none;
+}
+#show, #showevent{
+	display:none;
+}
+
+.name-card{
+	width:100%;
+}
+.name-card img{
+	width:100%;
+	border-radius:5px 5px 0px 0px;
+}
+.name-card-details{
+	padding-top:15px;
+	color:skyblue;
+}
+
+/*-------------------------------------------------------------- Loader Starts ---------------------------------------------------------------*/
+#loader {
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	z-index: 9999;
+	width: 100%;
+	height: 100vh;
+	background: url(../Images/Other/loader-dark5.gif) center no-repeat #000000;
+}
+
+.after-click {
+	position: fixed;
+	left: 0px;
+	right: 0px;
+	z-index: 9999;
+	width: 100%;
+	height: 100vh;
+	background: url(../Images/Other/loader-dark5.gif) center no-repeat #000000;
+	display: none;
+}
+.loader-footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-size: 12px;
+}
+/*---------------------------------------------------------menu bar----------------------------------------------------*/
+.menu-bar {
+	position: fixed;
+	top: 3vh;
+	left: 5vw;
+	color: aqua;;
+	font-size: 25px;
+	z-index:99;
+}
+
+	.menu-bar i {
+		padding: 10px 12px;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+
+		.menu-bar i:hover {
+			background-color: transparent;
+			box-shadow: 1px 1px 25px aqua;
+		}
+
+.menu-box {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	text-align: center;
+	color: skyblue;
+	font-family: 'finger paint';
+	font-size: 30px;
+	letter-spacing: 2px;
+	padding-top: 70px;
+	background: url(../Images/Other/dark-knight.jpg) center no-repeat;
+	background-size: cover;
+	z-index: 999;
+	display: none;
+}
+
+	.menu-box .link {
+		margin-bottom: 15px;
+		transition: all 1s;
+	}
+
+		.menu-box .link:hover {
+			letter-spacing: 3px;
+			font-weight: 100;
+			transition: all 1s;
+		}
+
+.notification-box {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	text-align: center;
+	font-family: muli;
+	padding-top: 50px;
+	background: url(../Images/Other/dark-knight.jpg) center no-repeat;
+	background-size:cover;
+	z-index: 999;
+	overflow-y: auto;
+	display: none;
+}
+
+/*-------------------------------------------------------------- Particle Starts ---------------------------------------------------------------*/
+#p-nasa {
+	height: 101vh;
+	width: 100%;
+	padding:5px;
+	background-image: url(../Images/Other/dark-knight.jpg);
+	background-attachment: fixed;
+}
+
+/*-------------------------------------------------------------- default Starts ---------------------------------------------------------------*/
+.title-cvg {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	text-align: center;
+	color: aqua;
+	font-size: 5vw;
+	color: cadetblue;
+	font-family: 'Finger Paint';
+	user-select: none;
+	transform: translate(-50%,-50%);
+}
+.title-cvg a{
+	text-decoration:none;
+}
+.link-cvgclub {
+	color: cadetblue;
+	font-weight:bold;
+	transition: all 1s;
+}
+	.link-cvgclub:hover {
+		color: aqua;
+		transition: all 1s;
+	}
+	.link-cvgclub:focus {
+		color: cadetblue;
+		transition: all 1s;
+	}
+.link-convergence19 {
+	color: grey;
+	font-weight: bold;
+	font-family: 'Special Elite';
+	font-size: 7vw;
+	transition: all 1s;
+}
+	.link-convergence19:focus {
+		color: grey;
+		font-weight:bold;
+		transition: all 1s;
+	}
+	.link-convergence19:hover {
+		color: darkcyan;
+		font-weight:normal;
+		letter-spacing:2px;
+		transition:all 1s;
+	}
+
+
+.box-1 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width:60vw;
+	transform: translate(-50%,-50%);
+}
+.box-2 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	height: 100vh;
+	width: 100%;
+	overflow-y: auto;
+	z-index: 9;
+	padding:10px;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.box-2 p{
+	font-family:muli;
+	text-align:justify;
+	font-size:16px;
+}
+.box-3 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width: 60vw;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.box-4 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width: 60vw;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.box-5 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width: 60vw;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.box-6 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width: 60vw;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.box-7 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width: 60vw;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.box-8 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width: 60vw;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.box-9 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width: 60vw;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.box-10 {
+	position: fixed;
+	top: 50vh;
+	left: 50vw;
+	min-height: 10vh;
+	width: 60vw;
+	transform: translate(-50%,-50%);
+	display: none;
+}
+.rsicon:hover {
+	-webkit-animation: rotation 1s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+	from {
+		-webkit-transform: rotate(0deg);
+	}
+
+	to {
+		-webkit-transform: rotate(359deg);
+	}
+}
+
+.zoomer {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px 8px 0px 0px;
+	transform: scale(1);
+	transition: transform 1s;
+}
+
+	.zoomer:hover {
+		transform: scale(1.2);
+		transition: transform 1s;
+	}
+
+.clubdetail {
+	position: relative;
+	top: 0;
+	left: 0;
+	min-height: 40px;
+	width: 100%;
+	background: rgba(255, 120, 133, 0.76);
+}
+
+
+/*---------------------------------------------------------hover background image----------------------------------------------------*/
+/*---------------------------------------------------------Other----------------------------------------------------*/
+
+.club-icon{
+	min-height:100px;
+	width:100%;
+	border-radius:5px;
+	background:red;
+}
+.droplist-box {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 200px;
+	background: rgba(10,10,10,0.9);
+	padding-top: 60px;
+	text-align: center;
+	z-index: 98;
+	display: none;
+}
+
+	.droplist-box span {
+		font-size: 12px;
+		margin-bottom: 5px;
+		cursor: pointer;
+	}
+
+
+#boow, #dv, #pptp, #th, #ws, #grft, #qz, #sktch, #pntng, #ch, #mm, #lg, #wd, #os, #fp, #dnc, #sng, #ptry, #phtg, #rngly, #drmtcs {
+	display: none;
+}
+
+/*--------------------------------------------------------- For Mobile View----------------------------------------------------*/
+@media screen and (max-width: 768px) {
+
+	.title-cvg {
+		position: fixed;
+		top: 50vh;
+		left: 50vw;
+		text-align: center;
+		color: aqua;
+		font-size: 25px;
+		color: cadetblue;
+		font-family: 'Finger Paint';
+		user-select: none;
+		transform: translate(-50%,-50%);
+	}
+
+		.title-cvg a {
+			text-decoration: none;
+		}
+
+	.link-convergence19 {
+		color: grey;
+		font-size: 35px;
+		font-family: 'Special Elite';
+		font-weight: bold;
+		transition: all 1s;
+	}
+
+		.link-convergence19:focus {
+			color: grey;
+			font-weight: bold;
+			letter-spacing: normal;
+			transition: all 1s;
+		}
+
+		.link-convergence19:hover {
+			color: grey;
+			font-weight: bold;
+			letter-spacing: normal;
+			transition: all 1s;
+		}
+
+	.alert-box .alert-dialog {
+		width:95vw;
+	}
+
+	.box-1 {
+		position: fixed;
+		top: 55vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+	}
+
+	.box-2 {
+		position: fixed;
+		top: 50vh;
+		left: 50vw;
+		height: 100vh;
+		width: 100%;
+		z-index: 9;
+		overflow-y: auto;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+		.box-2 p {
+			font-family: muli;
+			text-align: justify;
+			font-size: 13px;
+		}
+
+	.box-3 {
+		position: fixed;
+		top: 57vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+	.box-4 {
+		position: fixed;
+		top: 57vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+	.box-5 {
+		position: fixed;
+		top: 57vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+	.box-6 {
+		position: fixed;
+		top: 57vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+	.box-7 {
+		position: fixed;
+		top: 57vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+	.box-8 {
+		position: fixed;
+		top: 57vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+	.box-9 {
+		position: fixed;
+		top: 57vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+	.box-10 {
+		position: fixed;
+		top: 57vh;
+		left: 50vw;
+		min-height: 10vh;
+		width: 100%;
+		padding: 0px 10px;
+		transform: translate(-50%,-50%);
+		display: none;
+	}
+
+}
